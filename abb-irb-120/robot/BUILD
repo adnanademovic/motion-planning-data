@@ -3,7 +3,7 @@ package(default_visibility = ["//visibility:public"])
 filegroup(
     name = "robot",
     srcs = [
-        "setup.json",
+        "setup.robot",
         "seg_1.stl",
         "seg_2.stl",
         "seg_2_1.stl",
