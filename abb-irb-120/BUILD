@@ -12,3 +12,12 @@ filegroup(
         "//motion-planning-data/abb-irb-120/environment:environment",
     ],
 )
+
+filegroup(
+    name = "tasks",
+    srcs = glob(["*.task"]),
+    data = [
+        "//motion-planning-data/abb-irb-120/robot:robot",
+        "//motion-planning-data/abb-irb-120/environment:environment",
+    ],
+)

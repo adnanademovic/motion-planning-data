@@ -1,0 +1,37 @@
+environment {
+  robot_filename: "robot/setup.robot"
+  environment_filename: "environment/obstacles_trivial.stl"
+  max_underestimate: 20.0
+}
+generator {
+  type: SIMPLE
+}
+index {
+  type: KD_TREE
+  index_params {
+    trees: 8
+  }
+  search_params {
+    checks: 128
+    use_heap: false
+  }
+}
+tree {
+  type: BUBBLE
+}
+source {
+  q: -45
+  q:  39
+  q:   6
+  q:   9
+  q:   9
+  q:   9
+}
+destination {
+  q:  45
+  q:  21
+  q:  21
+  q:  -9
+  q:  -9
+  q:  -9
+}
