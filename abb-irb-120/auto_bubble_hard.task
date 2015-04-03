@@ -1,0 +1,31 @@
+environment {
+  robot_filename: "robot/setup.robot"
+  environment_filename: "environment/obstacles_hard.stl"
+  max_underestimate: 20.0
+}
+generator {
+  type: SIMPLE
+}
+index {
+  type: AUTOTUNED
+}
+tree {
+  type: BUBBLE
+}
+source {
+  q: -90
+  q:  50
+  q: -50
+  q:   0
+  q:   0
+  q:   0
+}
+destination {
+  q:   0
+  q:  90
+  q: -90
+  q:  -9
+  q:  -9
+  q:  -9
+  q:   0
+}
