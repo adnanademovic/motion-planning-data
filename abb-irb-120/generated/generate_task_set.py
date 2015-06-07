@@ -98,7 +98,8 @@ def parameter_provider():
             #for index_type in ['LINEAR', 'KD_TREE', 'AUTOTUNED']:
             for index_type in ['KD_TREE']:
                 for tree_type in ['BUBBLE', 'CLASSIC']:
-                    for attempt_connect in ['true', 'false']:
+                    # for attempt_connect in ['true', 'false']:
+                    for attempt_connect in ['true']:
                         for seed in range(0, 100):
                             yield {
 '1_difficulty': difficulty,
