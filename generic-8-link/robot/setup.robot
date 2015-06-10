@@ -1,5 +1,5 @@
 segments {
-  a: 180
+  a: 100
   parts: "seg_1_1.stl"
   parts: "seg_1_2.stl"
   parts: "seg_1_3.stl"
@@ -11,7 +11,7 @@ segments {
   }
 }
 segments {
-  a: 180
+  a: 100
   parts: "seg_2_1.stl"
   parts: "seg_2_2.stl"
   parts: "seg_2_3.stl"
@@ -23,7 +23,7 @@ segments {
   }
 }
 segments {
-  a: 180
+  a: 100
   parts: "seg_3_1.stl"
   parts: "seg_3_2.stl"
   parts: "seg_3_3.stl"
@@ -35,7 +35,7 @@ segments {
   }
 }
 segments {
-  a: 180
+  a: 100
   parts: "seg_4_1.stl"
   parts: "seg_4_2.stl"
   parts: "seg_4_3.stl"
@@ -47,7 +47,7 @@ segments {
   }
 }
 segments {
-  a: 180
+  a: 100
   parts: "seg_5_1.stl"
   parts: "seg_5_2.stl"
   parts: "seg_5_3.stl"
@@ -59,7 +59,7 @@ segments {
   }
 }
 segments {
-  a: 180
+  a: 100
   parts: "seg_6_1.stl"
   parts: "seg_6_2.stl"
   parts: "seg_6_3.stl"
@@ -71,7 +71,7 @@ segments {
   }
 }
 segments {
-  a: 180
+  a: 100
   parts: "seg_7_1.stl"
   parts: "seg_7_2.stl"
   parts: "seg_7_3.stl"
@@ -83,7 +83,7 @@ segments {
   }
 }
 segments {
-  a: 180
+  a: 100
   parts: "seg_8_1.stl"
   parts: "seg_8_2.stl"
   parts: "seg_8_3.stl"
