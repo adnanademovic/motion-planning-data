@@ -4,7 +4,7 @@ template = '''
 environment {{
   robot_filename: "../robot/setup.robot"
   environment_filename: "../environment/obstacles_{1_difficulty}.stl"
-  max_underestimate: 20.0
+  max_underestimate: 5.0
 }}
 generator {{
   type: {2_generator_type}
