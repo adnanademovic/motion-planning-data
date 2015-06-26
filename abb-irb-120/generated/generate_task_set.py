@@ -2,19 +2,12 @@
 
 template = '''
 environment {{
-  robot_filename: "../robot/setup.robot"
+  robot_filename: "../robot/{robot_type}"
   environment_filename: "../environment/obstacles_{1_difficulty}.stl"
   max_underestimate: 20.0
 }}
 generator {{
-  type: {2_generator_type}
   seed: {6_seed}
-  keys: 2
-  keys: 3
-  keys: 5
-  keys: 7
-  keys: 11
-  keys: 13
 }}
 index {{
   type: {3_index_type}
@@ -28,7 +21,6 @@ index {{
 }}
 tree {{
   type: {4_tree_type}
-  attempt_connect: {5_attempt_connect}
 }}
 source {{
 {source_q_string}
@@ -92,23 +84,22 @@ dst_q_string = {
 ''',
 }
 
+robot_type_string = {
+    'BUBBLE': 'setup.robot',
+    'CLASSIC': 'solid.robot',
+}
+
 def parameter_provider():
     for difficulty in ['trivial', 'easy', 'hard']:
-        for generator_type in ['SIMPLE', 'HALTON']:
-            #for index_type in ['LINEAR', 'KD_TREE', 'AUTOTUNED']:
-            for index_type in ['KD_TREE']:
-                for tree_type in ['BUBBLE', 'CLASSIC']:
-                    # for attempt_connect in ['true', 'false']:
-                    for attempt_connect in ['true']:
-                        for seed in range(0, 100):
-                            yield {
+        for index_type in ['LINEAR', 'KD_TREE', 'AUTOTUNED']:
+            for tree_type in ['BUBBLE', 'CLASSIC']:
+                for seed in range(0, 100):
+                    yield {
 '1_difficulty': difficulty,
-'2_generator_type': generator_type,
 '6_seed': str(400 * seed),
 '3_index_type': index_type,
 '4_tree_type': tree_type,
-'5_attempt_connect': attempt_connect,
-                            }
+                    }
 
 counter = 0
 for mapping in parameter_provider():
@@ -118,4 +109,5 @@ for mapping in parameter_provider():
             '.task', 'w') as f:
         mapping['source_q_string'] = src_q_string[mapping['1_difficulty']]
         mapping['destination_q_string'] = dst_q_string[mapping['1_difficulty']]
+        mapping['robot_type'] = robot_type_string[mapping['4_tree_type']]
         f.write(template.format(**mapping))
