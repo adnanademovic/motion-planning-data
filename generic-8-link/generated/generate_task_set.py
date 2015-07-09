@@ -103,7 +103,7 @@ robot_type_string = {
 
 def parameter_provider():
     for difficulty in ['trivial', 'easy', 'hard']:
-        for index_type in ['LINEAR', 'KD_TREE', 'AUTOTUNED']:
+        for index_type in ['LINEAR', 'KD_TREE']:
             for tree_type in ['BUBBLE', 'CLASSIC']:
                 for seed in range(0, 100):
                     yield {
