@@ -21,6 +21,7 @@ index {{
 }}
 tree {{
   type: {4_tree_type}
+  use_extended_bubbles: {5_use_extended_bubbles}
 }}
 source {{
 {source_q_string}
@@ -73,15 +74,20 @@ robot_type_string = {
 
 def parameter_provider():
     for difficulty in ['trivial', 'easy', 'hard']:
-        for index_type in ['LINEAR', 'KD_TREE']:
+        for index_type in ['KD_TREE']:
             for tree_type in ['BUBBLE', 'CLASSIC']:
-                for seed in range(0, 100):
-                    yield {
+                for use_extended_bubbles in ['true', 'false']:
+                    if (use_extended_bubbles is 'true'
+                            and tree_type is 'CLASSIC'):
+                        continue
+                    for seed in range(0, 100):
+                        yield {
 '1_difficulty': difficulty,
 '6_seed': str(400 * seed),
 '3_index_type': index_type,
 '4_tree_type': tree_type,
-                    }
+'5_use_extended_bubbles': use_extended_bubbles
+                        }
 
 counter = 0
 for mapping in parameter_provider():
