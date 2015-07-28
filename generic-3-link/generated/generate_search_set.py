@@ -82,8 +82,8 @@ def parameter_provider():
                     if (use_extended_bubbles is 'true'
                             and tree_type is 'CLASSIC'):
                         continue
-                    for v_bubble_extend in xrange(10, 26, 3):
-                        for v_min_bubble_reach in xrange(1, 11, 3):
+                    for v_bubble_extend in [95]:
+                        for v_min_bubble_reach in xrange(1, 11):
                             for seed in range(0, 100):
                                 yield {
 '1_difficulty': difficulty,
