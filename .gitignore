@@ -1,2 +1,5 @@
 # Generated tasks
 *generated_*.task
+
+# Compiled Python
+*.pyc
