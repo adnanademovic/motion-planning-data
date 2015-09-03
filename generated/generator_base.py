@@ -1,6 +1,6 @@
 template = '''
 environment {{
-  robot_filename: "../{world_case}/robot/{robot_type}"
+  robot_filename: "../{world_case}/robot/solid.robot"
   environment_filename: "../{world_case}/environment/obstacles_{difficulty}.stl"
   max_underestimate: 5.0
 }}
@@ -29,15 +29,6 @@ destination {{
 }}
 '''
 
-robot_type_string = {
-    'BUBBLE-true': 'setup.robot',
-    'BUBBLE-false': 'solid.robot',
-    'BERTRAM_BUBBLE-true': 'setup.robot',
-    'BERTRAM_BUBBLE-false': 'solid.robot',
-    'CLASSIC-true': 'solid.robot',
-    'CLASSIC-false': 'solid.robot',
-}
-
 def parameter_provider():
     for difficulty in ['trivial', 'easy', 'hard']:
         for index_type in ['KD_TREE']:
@@ -60,7 +51,7 @@ def generate_files(q_src, q_dst, world_case):
     for mapping in parameter_provider():
         counter += 1
         print 'At: {}'.format(counter)
-        with open('generated___' + world_case + "___" +
+        with open('generated_solid___' + world_case + "___" +
                 ('___'.join(zip(*sorted(mapping.items()))[1])) +
                 '.task', 'w') as f:
             casemap = {
@@ -80,8 +71,5 @@ def generate_files(q_src, q_dst, world_case):
                 'use_extended_bubbles': mapping['5_use_extended_bubbles'],
                 'source_q_string': q_src[mapping['1_difficulty']],
                 'destination_q_string': q_dst[mapping['1_difficulty']],
-                'robot_type': robot_type_string[
-                        '-'.join([mapping['4_tree_type'],
-                                 mapping['5_use_extended_bubbles']])],
             }
             f.write(template.format(**filemap))
